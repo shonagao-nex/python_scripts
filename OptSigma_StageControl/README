@@ -1,0 +1,46 @@
+###############################
+###  Stage Control Scripts  ###
+###############################
+# This is a scripts operating mechanical stages.           #
+# Available stages are the followings                      #
+# OptoSigma                                                #
+# OSMS20-85  (0-170mm)                                     #
+# OSMS26-300 (0-300mm)                                     #
+# I recommend to use GUI controller.                       #
+# CUI controllers are also available for shellscripts.     #
+# Sho Nagao                                                #
+
+### Change Log ###
+v1.0.0 2020/08/13 First Version
+v1.1.0 2021/03/15 S.Nagao
+  Change arguments. OLD: ./controlGUI, NEW: ./contrilGUI /dev/ttyUSB0 etc.
+
+### Environments ###
+CentOS7.8
+Python3.6.8
+pyserial3.4
+tk8.5
+
+### Files ###
+StageControl.py: Classes 
+controlGUI.py: GUI controller source
+controlGUI: GUI controller
+move.py: Stage moves a position
+original.py: Stage sets original position
+readpos.py: Read position
+
+### How to ###
+# Compile
+./compile.sh
+
+# Set to Original Position (CUI)
+python3 original.py DeviceFile
+# Read position (CUI)
+python3 readpos.py DeviceFile
+# Move position (CUI)
+python3 move.py DeviceFile Position(in mm)
+
+# Execution GUI controller
+Launch GUI script
+$ ./controlGUI DeviceFile
+
